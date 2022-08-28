@@ -6,6 +6,14 @@ Below example is based on F8 BIOS
 
 <img width="1310" alt="Screenshot 2022-08-25 at 10 56 46 AM" src="https://user-images.githubusercontent.com/97265013/186736714-6773c3cb-e7a0-438c-a6b0-6025f75ecb0a.png">
 
+Config.plist
+
+- ACPI -> Delete -> Drop OEM DMAR Table and Drop OEM USB Table (SSDT-6 A M I)
+- ACPI -> Add - > SSDT-USBPorts.aml
+
+
+
+
 The advantage of using this USB port mapping method.
 
    - Kextless
