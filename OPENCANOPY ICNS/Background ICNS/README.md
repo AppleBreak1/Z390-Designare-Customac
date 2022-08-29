@@ -1,5 +1,11 @@
 # Background images for OpenCanopy.
 
-<img width="355" alt="Screenshot 2022-08-25 at 7 26 18 PM" src="https://user-images.githubusercontent.com/97265013/186804675-49a02906-9ab5-4d87-b871-33dd5c9f0e72.png">
+<p align="center">
+<img width="775" alt="Screenshot 2022-08-28 at 3 03 17 PM" src="https://user-images.githubusercontent.com/97265013/187099749-84ad8042-d129-4d2f-b0df-97120dc3218e.png">
+</p>
+
+![2](https://user-images.githubusercontent.com/97265013/187099884-425373fe-5444-47d4-b17f-55942f14fdf7.png)
+
+
 
 To change background image in OpenCanopy, replace Background.icns file in EFI/OC/Resources/Image/ThemeFolder
