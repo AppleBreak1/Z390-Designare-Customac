@@ -151,13 +151,13 @@ Note: F8 BIOS does not have CFG_Unlock option. MSR 0xE2 has been unlocked follow
 
 - SSDT-COSMETIC.aml (Optional; injects fake or missing devices and rename devices)
 
-    - PNLF, THRM, SRAM, XSPI
-    - RP02.PXSX to GIGE
-    - RP04.PXSX to ARPT
-    - RP09.PXSX to SSD1
-    - RP17.PXSX to SSD0
+    - Injected Devices: PNLF, THRM, SRAM, XSPI 
+    - RP02.PXSX to GIGE  -> Intel i211 Ethernet
+    - RP04.PXSX to ARPT  -> FV-T919 in 2nd PCIEx1 slot
+    - RP09.PXSX to SSD1  -> 2nd M.2 slot (M2P) * Disables SATA 1 port when occupied by NVMe SSD
+    - RP17.PXSX to SSD0  -> 1st M.2 slot (M2M) * Disables SATA 4 and 5 ports when occupied by NVMe SSD
 
-- SSDT-LPCB.aml (Optional; injects DMAC, ALS0, FWHD, and ARTC devices under LPCB)
+- SSDT-LPCB.aml (injects DMAC, ALS0, FWHD, and ARTC devices under LPCB)
 
 - SSDT-USBW.aml (One hit key wake from sleep; associated with USBWakeFixup.kext)
 
