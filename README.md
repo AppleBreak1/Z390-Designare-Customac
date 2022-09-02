@@ -1,7 +1,8 @@
 # Z390-Designare-Customac
 macOS Ventura, OpenCore 0.8.3
 
-![26060739](https://user-images.githubusercontent.com/97265013/186834386-820ca584-094a-4d36-86d6-70fe12aaab95.png)
+
+![02192651](https://user-images.githubusercontent.com/97265013/188223965-3c2ba291-0128-400c-9779-53c3d97043d4.png)
 
 
 
