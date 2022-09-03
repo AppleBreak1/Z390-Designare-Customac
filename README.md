@@ -2,7 +2,7 @@
 macOS Ventura, OpenCore 0.8.3
 
 
-![02192651](https://user-images.githubusercontent.com/97265013/188223965-3c2ba291-0128-400c-9779-53c3d97043d4.png)
+![03023952](https://user-images.githubusercontent.com/97265013/188255392-44718af6-9b02-44c1-8539-27a90679f42f.png)
 
 
 
