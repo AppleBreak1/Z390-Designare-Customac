@@ -1,6 +1,6 @@
 # Important Notes
 
-This method modifies OEM USB Table SSDT-6 A M I(where the USB Ports are declared). Modification includes limiting 11 port using GUPC method and enabling 15 ports using TUPC method in Mac OS only. To make it work, first remove previously configured USB port mapping method, then drop OEM SSDT-6-A M I table in ACPI section of config.plist and add patched SSDT-6-A M I which is renamed to SSDT-USBPorts.aml after the modificiation. Ensure that the tablelength matches the length indicated in your OEM SSDT-6-A M I, as different BIOS revisions may have different table length. Otherwise, this USB port mapping won't work due to failure in dropping OEM SSDT-6-A M I table.
+This method modifies OEM USB Table SSDT-6 A M I(where the USB Ports are declared). Modification includes limiting 11 ports using GUPC method and enabling 15 ports using TUPC method in Mac OS only. To make it work, first remove previously configured USB port mapping method, then drop OEM SSDT-6-A M I table in ACPI section of config.plist and add patched SSDT-6-A M I which is renamed to SSDT-USBPorts.aml after the modificiation. Ensure that the tablelength matches the length indicated in your OEM SSDT-6-A M I, as different BIOS revisions may have different table length. Otherwise, this USB port mapping won't work due to failure in dropping OEM SSDT-6-A M I table.
 
 Below example is based on F8 BIOS
 
