@@ -8,7 +8,7 @@ Below example is based on F8 BIOS
 
 Config.plist
 
-- ACPI -> Delete -> Drop OEM DMAR Table and Drop OEM USB Table (SSDT-6 A M I)
+- ACPI -> Delete -> Drop OEM USB Table (SSDT-6 A M I)
 - ACPI -> Add - > SSDT-USBPorts.aml
 
 
