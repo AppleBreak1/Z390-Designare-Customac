@@ -9,6 +9,6 @@ Alternative to using OEM GUPC and TUPC method is to create new method to take tw
 
 <img width="559" alt="Disable" src="https://user-images.githubusercontent.com/97265013/189262549-b0d773ad-3dfc-4f4c-a0f5-99cf34324686.png">
 
-# Enable Port
+# Enable Port and Set Connector Type
 
 <img width="542" alt="Enable" src="https://user-images.githubusercontent.com/97265013/189262560-5b3898b2-9787-4fb8-8147-1983e91012c1.png">
