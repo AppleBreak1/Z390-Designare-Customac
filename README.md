@@ -65,7 +65,7 @@ Note 1: Config.plist changes for Sierra(10.12.6) ~ Catalina
 
 Note 2: For Sierra(10.12.6) and High Sierra(10.13.6), it is necessary to change SMBIOS to iMac18,3 
 
-    - DeviceProperty -> AAPL,ig-platform-id -> 03001259 (For iGPU acceleration)  
+    - DeviceProperty -> AAPL,ig-platform-id -> 03001259 (For Computation only)  
                                             -> 00001259 (To drive a display     
                                             
                      -> rps-control instead of igfxfw (For Sierra Only)          
