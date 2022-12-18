@@ -110,7 +110,7 @@ Note: F8 BIOS does not have CFG_Unlock option. MSR 0xE2 has been unlocked follow
 
 # OpenCore 0.8.3 Config.plist
 
-- ACPI -> Delete -> Drop OEM DMAR Table and Drop OEM USB Table (SSDT-6 A M I)
+- ACPI -> Delete -> Drop OEM DMAR Table
 
 - ACPI -> Patch -> SAT0 to SATA rename
 
