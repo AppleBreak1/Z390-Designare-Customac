@@ -65,10 +65,10 @@ Note 1: Config.plist changes for Sierra(10.12.6) ~ Catalina
 
 Note 2: For Sierra(10.12.6) and High Sierra(10.13.6), it is necessary to change SMBIOS to iMac18,3 
 
-    - DeviceProperty -> AAPL,ig-platform-id -> 03001259 (For computation only)  
-                                            -> 00001259 (To drive a display     
+    - iGPU DeviceProperty -> AAPL,ig-platform-id -> 03001259 (For headless mode)  
+                                                 -> 00001259 (To drive a display)     
                                             
-                     -> rps-control instead of igfxfw (For Sierra Only)          
+                          -> rps-control instead of igfxfw (For Sierra Only)          
                      
     - Boot-args -> -disableigfxfirmware (For Sierra only. This prevents firmware load)
     
