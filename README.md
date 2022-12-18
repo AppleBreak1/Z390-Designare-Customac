@@ -190,9 +190,9 @@ Note: F8 BIOS does not have CFG_Unlock option. MSR 0xE2 has been unlocked follow
 
 - SmallTreeIntel82576.kext (i211 ethernet; this kext is no longer required since Monterey 12.3; is natively supported)
 
-   Note: Since Monterey 12.3.0, AppleEthernetE1000 driver kit natively attaches to i211 ethernet. However, if AppleVTD is not enabled, system will          experience freeze, crash, and etc. To avoid having these issues, we need to enable AppleVTD.
+   Note: Since Monterey 12.3.0, AppleEthernetE1000 driver kit natively attaches to i211 ethernet. However, if the ethernet port is occupied without having AppleVTD enabled, the system will experience freeze, crash, and etc. To avoid having these issues, we need to enable AppleVTD.
     
-    Enable AppleVTD
+    Enabling AppleVTD
     
         - Enable VT-d in BIOS, 
         - Set DisableIoMapper to false
