@@ -56,18 +56,23 @@ Case: NZXT H440 White Mid Tower Case
 
 - Boot time from Apple logo to desktop: 20 sec.
 
-- Working Mac OS: High Sierra ~ macOS Ventura 13.0
+- Working Mac OS: Sierra ~ macOS Ventura 13.0
 
-Note 1: Config.plist changes for High Sierra ~ Catalina
+Note 1: Config.plist changes for Sierra(10.12.6) ~ Catalina
 
     - SecureBootModel -> Disabled
     - UEFI -> APFS -> MinDate and MinVersion -> -1
 
-Note 2: For High Sierra, it is necessary to change SMBIOS to iMac18,3 
+Note 2: For Sierra(10.12.6) and High Sierra(10.13.6), it is necessary to change SMBIOS to iMac18,3 
 
-    - DeviceProperty -> AAPL,ig-platform-id -> 03001259 (For iGPU acceleration in High Sierra only)   
+    - DeviceProperty -> AAPL,ig-platform-id -> 03001259 (For iGPU acceleration)  
+                                            -> 00001259 (To drive a display     
+                                            
+                     -> rps-control instead of igfxfw (For Sierra Only)          
+                     
+    - Boot-args -> -disableigfxfirmware (For Sierra only. This prevents firmware load)
     
-
+    
 # Not Working
 
 - DRM in Safari and TV+ (For workaround, force AMD GPU Enc/Dec)
@@ -184,6 +189,15 @@ Note: F8 BIOS does not have CFG_Unlock option. MSR 0xE2 has been unlocked follow
 - IntelMausi.kext (i219V7 ethernet)
 
 - SmallTreeIntel82576.kext (i211 ethernet; this kext is no longer required since Monterey 12.3; is natively supported)
+
+   Note: Since Monterey 12.3.0, AppleEthernetE1000 driver kit natively attaches to i211 ethernet. However, if AppleVTD is not enabled, system will          experience freeze, crash, and etc. To avoid having these issues, we need to enable AppleVTD.
+    
+    Enable AppleVTD
+    
+        - Enable VT-d in BIOS, 
+        - Set DisableIoMapper to false
+        - Drop OEM DMAR Table in config.plist
+        - Inject modified DMAR Table(Reserved Memory Regions removed) in Config.plist
 
 - USBWakeFixup.kext (Works with SSDT-USBW. Causes Bluetooth issue in Monterey or Higher; thus set minkernel to 19.0 and max kernel to 20.9.9)
 
