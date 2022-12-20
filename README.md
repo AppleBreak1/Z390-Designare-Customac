@@ -279,10 +279,15 @@ So far so good.
 
 
 
+# Resources
+
+- [Apple Inc](https://www.apple.com/) for MacOS.
+- [Acidanthera Team](https://github.com/acidanthera) for OpenCore Bootloader, its documentation, and KEXTS.
+- [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) for thorough explanation.
+- [CaseySJ's Golden Build Guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.316533/) for IO layout findings and Thunderbolt 3 hotplug fix SSDT.
 
 
-
-
+Big thanks to Hackintosh community and those who contributed to make hackintosh possible from the beginning to the end!
 
 
 
