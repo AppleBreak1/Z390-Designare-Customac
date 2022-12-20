@@ -122,7 +122,8 @@ Note: F8 BIOS does not have CFG_Unlock option. MSR 0xE2 has been unlocked follow
     - Intel i211 model name injection 
     - ALC 1220-VB Audio layout-id injection
     - UHD-630 Property Injection 
-    
+      
+      - ig-platform-id (For iGPU acceleration)
       - device-id (Fixes KBL Unknown to UHD-630)
       - igfxfw (Load Apple's GuC Firmware)
 
@@ -230,9 +231,10 @@ I have made different versions of [USB Port Mapping](https://github.com/AppleBre
 macOS Sierra 10.12.6
 
 - Change SMBIOS to iMac18,3 (Required)
-- Spoof to Kaby Lake CPUIDs
+- Spoof to Kaby Lake CPUIDs (Required)
 - Inject ig-platform-id: 03001259 device-id: 12590000 (Necessary for iGPU acceleration) 
-- Add boot-arg -disableigfxfirmware
+- Inject rps-control property instead of igfxfw (Necessary for iGPU acceleration and improvement) 
+- Add boot-arg -disableigfxfirmware (To disable firmware load. Necessary for iGPU acceleration) 
 - SecureBootModel -> Disabled (Required)
 - UEFI -> APFS -> MinDate and MinVersion -> -1 (Required)
 
