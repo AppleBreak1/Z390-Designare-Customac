@@ -72,7 +72,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6), it is necessary to change 
                                             
                           -> rps-control instead of igfxfw (For Sierra Only)          
                      
-    - Boot-args -> -disableigfxfirmware (For Sierra only. This prevents firmware load)
+    - Boot-args -> -disablegfxfirmware (For Sierra only. This prevents firmware load)
     
     
 # Not Working
@@ -234,7 +234,7 @@ macOS Sierra 10.12.6
 - Spoof to Kaby Lake CPUIDs (Required)
 - Inject ig-platform-id: 03001259 device-id: 12590000 (Necessary for iGPU acceleration) 
 - Inject rps-control property instead of igfxfw (Necessary for iGPU acceleration and improvement) 
-- Add boot-arg -disableigfxfirmware (To disable firmware load. Necessary for iGPU acceleration) 
+- Add boot-arg -disablegfxfirmware (To prevent firmware load. Necessary for iGPU acceleration) 
 - SecureBootModel -> Disabled (Required)
 - UEFI -> APFS -> MinDate and MinVersion -> -1 (Required)
 
