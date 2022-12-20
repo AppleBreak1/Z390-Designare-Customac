@@ -65,6 +65,8 @@ Note 1: Config.plist changes for Sierra(10.12.6) ~ Catalina
 
 Note 2: For Sierra(10.12.6) and High Sierra(10.13.6), it is necessary to change SMBIOS to iMac18,3 
 
+    - Spoof to i7-7700K CPUID (0x0906E9) for (Sierra 10.12.6)
+    
     - iGPU DeviceProperty -> AAPL,ig-platform-id -> 03001259 (For headless mode)  
                                                  -> 00001259 (To drive a display)     
                                             
@@ -225,10 +227,19 @@ I have made different versions of [USB Port Mapping](https://github.com/AppleBre
 
 # macOS Update Notes
 
-macOS High Sierra
+macOS Sierra 10.12.6
 
 - Change SMBIOS to iMac18,3 (Required)
-- Spoof Platform ID: 03001259 Device ID: 12590000 (Necessary for iGPU acceleration) 
+- Spoof to Kaby Lake CPUIDs
+- Inject ig-platform-id: 03001259 device-id: 12590000 (Necessary for iGPU acceleration) 
+- Add boot-arg -disableigfxfirmware
+- SecureBootModel -> Disabled (Required)
+- UEFI -> APFS -> MinDate and MinVersion -> -1 (Required)
+
+macOS High Sierra 10.13.6
+
+- Change SMBIOS to iMac18,3 (Required)
+- Inject ig-platform-id: 03001259 device-id: 12590000 (Necessary for iGPU acceleration) 
 - SecureBootModel -> Disabled (Required)
 - UEFI -> APFS -> MinDate and MinVersion -> -1 (Required)
 
@@ -241,15 +252,18 @@ macOS Mojave ~ Catalina
 
 macOS Big Sur
 
-- Injecting AAPL,slot-name for iGPU or dGPU breaks VideoToolbox behavior for FCPX
+- Injecting AAPL,slot-name for iGPU or dGPU breaks certain encoding functions(H264) in FCPX.
 
 macOS Monterey 
+
 - USBWakeFixup.kext causes bluetooth issue after sleep/wake cycle.
 - SmallTreeIntel82576.kext no longer works for Intel i211 ethernet.
-- Beginning with Monterey 12.3, Intel i211 ethernet is natively supported.
+- Beginning with Monterey 12.3, Intel i211 ethernet is natively supported. 
+         ** AppleVTD is required for this to work **
 - Beginning with Monterey 12.3, SSDT-PLUG.aml is no longer required. 
 
 macOS Ventura
+
 So far so good.
 
 
