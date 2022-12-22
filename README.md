@@ -63,15 +63,17 @@ Note 1: Config.plist changes for Sierra(10.12.6) ~ Catalina
     - SecureBootModel -> Disabled
     - UEFI -> APFS -> MinDate and MinVersion -> -1
 
-Note 2: For Sierra(10.12.6) and High Sierra(10.13.6), it is necessary to change SMBIOS to iMac18,3 
+Note 2: For Sierra(10.12.6) and High Sierra(10.13.6), 
 
-    - Spoof to i7-7700K CPUID (0x0906E9) for (Sierra 10.12.6)
+    - Change SMBIOS to iMac18,3 
     
     - iGPU DeviceProperty -> AAPL,ig-platform-id -> 03001259 (For headless mode)  
                                                  -> 00001259 (To drive a display)     
                                             
-                          -> rps-control instead of igfxfw (For Sierra Only)          
-                     
+                          -> rps-control instead of igfxfw (For Sierra Only)    
+                          
+    - Spoof to i7-7700K CPUID (0x0906E9) for (Sierra 10.12.6)   
+    
     - Boot-args -> -disablegfxfirmware (For Sierra only. This prevents firmware load)
     
     
@@ -131,7 +133,7 @@ Note: F8 BIOS does not have CFG_Unlock option. MSR 0xE2 has been unlocked follow
 - Kernel -> Quirks -> CustomSMBIOSGuid -> Yes
 
 
-- Misc -> Security -> ScanPolicy -> 0 (Set it to 2,687,747 if you wish to hide unnessary entries)
+- Misc -> Security -> ScanPolicy -> 0 (Set it to 2,687,747 if you wish to hide unnecessary entries)
 
 
 - NVRAM -> Boot-args -> Nothing. (For AMD Rx 5xxx/6xxx GPU, agdpmod=pikera is required)
@@ -155,7 +157,7 @@ Note: F8 BIOS does not have CFG_Unlock option. MSR 0xE2 has been unlocked follow
 
 - SSDT-MCHCSBUS-DTGP.aml (Injects MCHC, SBUS, and DTGP method)
 
-- SSDT-DESIGNARE-Z390-TB3HP-V4.aml (Required for fuctional Thunderbolt ports)
+- SSDT-DESIGNARE-Z390-TB3HP-V4.aml (Required for functional Thunderbolt ports - Hotplug Fix)
 
 - SSDT-COSMETIC.aml (Optional; injects fake or missing devices and rename devices)
 
