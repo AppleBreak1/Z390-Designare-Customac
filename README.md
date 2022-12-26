@@ -204,7 +204,9 @@ Note: F8 BIOS does not have CFG_Unlock option. MSR 0xE2 has been unlocked follow
         - Drop OEM DMAR Table in config.plist
         - Inject modified DMAR Table(Reserved Memory Regions removed) in Config.plist
 
-- USBWakeFixup.kext (Works with SSDT-USBW. Causes Bluetooth issue in Monterey or Higher; thus set minkernel to 19.0 and max kernel to 20.9.9)
+- USBWakeFixup.kext (Works with SSDT-USBW. Causes Bluetooth issue in Monterey or Higher; thus set minkernel to 19.0 and max kernel to 20.9.9) 
+        
+   Note: One may wish to continue using USBWakeFixup.kext on Monterey or higer. If so, you may use [Bluesnooze](https://github.com/odlp/bluesnooze) as a workaround for the bluetooth issue caused by this kext.
 
 
 # Drivers
@@ -268,11 +270,22 @@ macOS Monterey
 
 macOS Ventura
 
-So far so good.
-
-
-
-
+- As of Ventura 13.1, 9 out of 10 times my bluetooth Apple Magic Keyboard and Trackpad do not respond on startup unless bluetooth or the devices itself has been toggled off and on again with usb mouse. This also seems to be a problem with real Macs as well, as decribed [here](https://discussions.apple.com/thread/254330209?answerId=258137456022#258137456022)   
+   
+     For a workaround, I am temporary using utility called [Blueutil](https://github.com/toy/blueutil) to automatically toggle bluetooth on and off on startup with a help of Automator.
+     
+    - Build blueutil from the source and install(copy) it to /usr/local/bin folder 
+    - Create Automator to run shell script below
+        
+      ```shell
+      export PATH=/usr/local/bin:$PATH
+      blueutil -p0 && blueutil -p1
+      ```
+    - Save the Automator and name it (BluetoothToggle)
+    - Add the Automator(BluetoothToggle) under Login Items to run at login.
+    
+    ** You may use a similar method to create service to run the script with keyboard shortcut when waking from sleep. 
+    
 # Geekbench 5
 
 <img width="973" alt="Screen Shot 2020-07-14 at 1 09 02 AM" src="https://user-images.githubusercontent.com/97265013/185341359-56b1625c-2ea8-495e-a606-db66cc1d8bc2.png">
