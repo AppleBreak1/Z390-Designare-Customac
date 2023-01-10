@@ -79,7 +79,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6),
     
 # Not Working
 
-- DRM in Safari and TV+ (For workaround, force AMD GPU Enc/Dec)
+- DRM in Safari and TV+ (For workaround, force AMD DRM)
 
 
 # BIOS Settings
