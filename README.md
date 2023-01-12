@@ -272,7 +272,7 @@ macOS Ventura
 
 - As of Ventura 13.1, 9 out of 10 times my bluetooth Apple Magic Keyboard and Trackpad do not respond on startup unless bluetooth or the devices itself has been toggled off and on again with USB mouse. This also seems to be a problem with real Macs as well, as decribed [here](https://discussions.apple.com/thread/254330209?answerId=258137456022#258137456022)   
    
-     For a workaround, I am temporary using tool called [Blueutil](https://github.com/toy/blueutil) to automatically toggle bluetooth off/on at login with a help of Automator.
+     For a workaround, I am temporary using a tool called [Blueutil](https://github.com/toy/blueutil) to automatically toggle bluetooth off/on at login with a help of Automator.
      
     - Build blueutil from the source and install(copy) it to /usr/local/bin folder 
     - Create Application to run shell script below
