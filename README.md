@@ -63,7 +63,7 @@ Note 1: Config.plist changes for Sierra(10.12.6) ~ Catalina
     - SecureBootModel -> Disabled
     - UEFI -> APFS -> MinDate and MinVersion -> -1
 
-Note 2: For Sierra(10.12.6) and High Sierra(10.13.6), 
+Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
     - Change SMBIOS to iMac18,3 
     
@@ -272,17 +272,17 @@ macOS Ventura
 
 - As of Ventura 13.1, 9 out of 10 times my bluetooth Apple Magic Keyboard and Trackpad do not respond on startup unless bluetooth or the devices itself has been toggled off and on again with USB mouse. This also seems to be a problem with real Macs as well, as decribed [here](https://discussions.apple.com/thread/254330209?answerId=258137456022#258137456022)   
    
-     For a workaround, I am temporary using utility called [Blueutil](https://github.com/toy/blueutil) to automatically toggle bluetooth "off" and "on" at login with a help of Automator.
+     For a workaround, I am temporary using CLI tool called [Blueutil](https://github.com/toy/blueutil) to automatically toggle bluetooth off/on at login with a help of Automator.
      
     - Build blueutil from the source and install(copy) it to /usr/local/bin folder 
-    - Create Automator to run shell script below
+    - Create Application to run shell script below
         
       ```shell
       export PATH=/usr/local/bin:$PATH
       blueutil -p0 && blueutil -p1
       ```
     - Save the Automator and name it (BluetoothToggle)
-    - Add the Automator(BluetoothToggle) under Login Items to run at login.
+    - Add the Application(BluetoothToggle) under Login Items to run at login.
     
     ** You may use a similar method to create service to run the script with keyboard shortcut when waking from sleep. 
     
