@@ -39,7 +39,7 @@ The advantage of using ACPI USB port mapping method.
          modify and drop the OEM table for USB may need to be redone accordingly. 
 
 # Modification
-
+Defined GUPC and TUPC Method
 <img width="1243" alt="3" src="https://github.com/AppleBreak1/Z390-Designare-Customac/assets/97265013/93f4d5be-c4b6-459d-b6d9-6c7ba9ff35c4">
 <br>
 <br>
@@ -47,24 +47,24 @@ The advantage of using ACPI USB port mapping method.
 Looking at the above two methods used for _UPC object in OEM table for USB, we can see the following.
 
 
-   - GUPC and TUPC both have one argument (Arg0)
+   - GUPC and TUPC both take one argument (Arg0)
      
-   - GUPC(Arg0=PCKG[Zero]) controls Enable/Disable port (By default, GUPC disables(Zero) USB port and defines connector type as 0xFF(Internal)
+   - GUPC(Arg0=PCKG[Zero]) defines connectable status of the port (By default, GUPC disables(Zero) USB port and defines connector type as 0xFF(Internal)
      
-   - TUPC(Arg0=PCKG[One]) controls USB connector type (By default, TUPC enables(One) USB port and defines connector type as Zero(USB1/USB2)
+   - TUPC(Arg0=PCKG[One]) defines USB connector type (By default, TUPC enables(One) USB port and sets connector type as Zero(USB1/USB2)
 
 ___
 For its intended function of each USB port on macOS, limiting the number of USB ports to 15 per USB controller and correctly defining the USB connector type for each enabled USB port are necessary. 
 
-As we can see, both of the written GUPC and TUPC method above only take one argument(GUPC=Enable/Disable USB port; TUPC=USB connector type). Without rewriting the method and with what's given, we can use both GUPC and TUPC to map the USB ports as below.
+As we can see, both of the defined GUPC and TUPC method above only take one argument(GUPC=Enable/Disable USB port; TUPC=USB connector type). Without redefining the method, we can use both GUPC and TUPC to map the USB ports as below.
 
-   - Use GUPC to disable USB port (If GUPC is used to enable USB port, we cannot control the connector type being defined for USB port individually. Instead, connector type of the enabled USB port will always be defined as 0xFF(Internal), a default for GUPC method. Thus, use GUPC for the purpose of disabling USB port)
+   - Use GUPC to disable USB port (If GUPC is called to enable USB port, we cannot control the connector type being defined for USB port individually. Instead, connector type of the enabled USB port with GUPC method will always be defined as 0xFF(Internal) as this is the default for the defined GUPC method and there is no second argument to control connector type. Thus, use GUPC for the purpose of disabling USB port)
 
       ~~~
       Return (GUPC (Zero)) -> Disable USB port
       ~~~
                  
-   - Use TUPC to enable USB port and define USB connector type (By default, TUPC enables USB port and we can selectively and individually define USB connector type for each of its enabled USB port. However, it cannot be used to disable USB port)
+   - Use TUPC to enable USB port and define USB connector type (By default, calling the given TUPC method enables USB port as it is how it's defined and we can selectively and individually set USB connector type for each of its enabled USB port by changing the value of it's argument. However, it cannot be called to disable USB port unless we rewrite the TUPC method)
 
       ~~~
       Return (TUPC (0x03)) -> Define USB connector type as 0x03 (Type-A USB2/USB3)
@@ -78,11 +78,12 @@ As we can see, both of the written GUPC and TUPC method above only take one argu
 
 - Disable USB port: GUPC 
 
-<img width="1030" alt="Screenshot 2022-08-25 at 12 31 08 PM" src="https://user-images.githubusercontent.com/97265013/186759663-d4de3add-d1fc-4d7f-9b71-31c41cec7ce6.png">
+<img width="1151" alt="1" src="https://github.com/user-attachments/assets/5f0a6f2f-0223-4520-a607-7db306e8f4f9">
 
+___
 - Enable USB port: TUPC
 
-<img width="953" alt="Screenshot 2022-08-25 at 12 45 21 PM" src="https://user-images.githubusercontent.com/97265013/186757334-912eced2-8fd2-45a6-956f-c90a9a476dab.png">
+<img width="1160" alt="2" src="https://github.com/user-attachments/assets/89fff435-dc78-4262-9654-acc76622f241">
 
 
 The _PLD (Physical Location Description) object is not very important for USB port mapping. For the USB ports to be enabled, may leave it as is and for the USB ports to be disabled, modify the first variable (Arg0) of GPLD or TPLD to Zero. You can ignore the second variable (Arg1) as well.
